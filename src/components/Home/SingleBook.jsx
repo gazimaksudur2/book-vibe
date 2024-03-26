@@ -17,11 +17,15 @@ const SingleBook = () => {
         }else if(exists('wishlist',id)){
             toast.error('Transferred from wishlist to readlist!!');
             removeItem('wishlist',id);
+            setTimeout(()=>{
+                addItem('read', id);
+            },2000);
+            return;
         }
         setTimeout(()=>{    
             addItem('read', id);
             toast.success('Added to read successfully!!');
-        },2000)
+        },500)
     }
     const handleWishlist = (id)=>{
         if(exists('wishlist',id)){
