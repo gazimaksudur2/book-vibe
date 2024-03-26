@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -17,7 +17,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <img src="https://i.ibb.co/wK7JHDJ/book.png" className="w-8" alt="app-icon" />
-                <a className="ml-4 text-3xl text-[#131313] font-bold">ReadiVerse</a>
+                <Link to={'/'} className="ml-4 text-3xl text-[#131313] font-bold">ReadiVerse</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-[#131313bd] text-lg font-normal justify-center items-center gap-10">

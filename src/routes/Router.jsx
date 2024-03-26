@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../components/Home/Home";
 import MainLayout from "../components/MainLayout/MainLayout";
+import Home from "../components/Home/Home";
 import Banner from "../components/Home/Banner";
 import Books from "../components/Home/Books";
 import SingleBook from "../components/Home/SingleBook";
@@ -8,18 +8,17 @@ import ListedBooks from "../components/ListedBooks/ListedBooks";
 import ToRead from "../components/ToRead/ToRead";
 import NewArrival from "../components/NewArrival/NewArrival";
 import FAQ from "../components/FAQ/FAQ";
-import ReadBooks from "../components/ListedBooks/BookArea/ReadBooks";
-import Wishlist from "../components/ListedBooks/BookArea/Wishlist";
+
 
 const router = createBrowserRouter([
     {
         path:'/',
-        element:<MainLayout/>,
+        element:<MainLayout />,
         loader: ()=> fetch('/books.json'),
         children:[
             {
                 index: '/',
-                element:<Home/>,
+                element:<Home />,
                 loader: ()=> fetch('/books.json'),
                 children:[
                     {
@@ -41,19 +40,6 @@ const router = createBrowserRouter([
             {
                 path: '/listedbooks',
                 element: <ListedBooks />,
-                loader: ()=> fetch('/books.json'),
-                children:[
-                    {
-                        path: '/listedbooks',
-                        element: <ReadBooks/>,
-                        loader: ()=> fetch('/books.json'),
-                    },
-                    {
-                        path: 'wishlist',
-                        element: <Wishlist/>,
-                        loader: ()=> fetch('/books.json'),
-                    }
-                ]                     
             },
             {
                 path: '/toread',
@@ -75,3 +61,4 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
+

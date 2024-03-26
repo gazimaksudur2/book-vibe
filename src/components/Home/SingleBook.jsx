@@ -1,5 +1,5 @@
 import { useParams, useLoaderData } from 'react-router-dom';
-import { addItem, exists } from '../../utils/utility';
+import { addItem, exists, removeItem } from '../../utils/utility';
 import toast from 'react-hot-toast';
 
 const SingleBook = () => {
@@ -12,14 +12,23 @@ const SingleBook = () => {
     const handleRead = (id)=>{
         if(exists('read',id)){
             toast.error('Already in read!!');
+            console.log(id);
             return;
+        }else if(exists('wishlist',id)){
+            toast.error('Transferred from wishlist to readlist!!');
+            removeItem('wishlist',id);
         }
-        addItem('read', id);
-        toast.success('Added to read successfully!!');
+        setTimeout(()=>{    
+            addItem('read', id);
+            toast.success('Added to read successfully!!');
+        },2000)
     }
     const handleWishlist = (id)=>{
         if(exists('wishlist',id)){
             toast.error('Already in wishlist!!');
+            return;
+        }else if(exists('read',id)){
+            toast.error('That book already in read list!!');
             return;
         }
         addItem('wishlist', id);

@@ -22,6 +22,9 @@ const removeItem = (key, val)=>{
         const nw = prev.filter((ck)=>ck!==val);
         setItem(key, nw);
         return val;
+    }else if(val==='all'){
+        localStorage.removeItem(key);
+        return val;
     }
     return null;
 }
