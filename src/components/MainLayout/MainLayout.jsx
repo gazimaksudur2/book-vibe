@@ -9,9 +9,7 @@ const MainLayout = () => {
         <div className='h-screen flex flex-col justify-between'>
             <div className='mx-[2%] mb-10 mt-8'>
                 <Navbar />
-                <div className= 'h-[77vh]'>
-                    <Outlet/>
-                </div>
+                <Outlet/>
             </div>
             <Footer/>
         </div>
