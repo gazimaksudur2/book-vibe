@@ -5,6 +5,9 @@ import Banner from "../components/Home/Banner";
 import Books from "../components/Home/Books";
 import SingleBook from "../components/Home/SingleBook";
 import ListedBooks from "../components/ListedBooks/ListedBooks";
+import ToRead from "../components/ToRead/ToRead";
+import NewArrival from "../components/NewArrival/NewArrival";
+import FAQ from "../components/FAQ/FAQ";
 
 const router = createBrowserRouter([
     {
@@ -40,17 +43,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/toread',
-                element: <SingleBook />,
+                element: <ToRead />,
                 loader: ()=> fetch('./books.json'),                         
             },
             {
                 path: '/newarrival',
-                element: <SingleBook />,
+                element: <NewArrival />,
                 loader: ()=> fetch('./books.json'),                         
             },
             {
                 path: '/faq',
-                element: <SingleBook />,
+                element: <FAQ />,
                 loader: ()=> fetch('./books.json'),                         
             }
         ]
