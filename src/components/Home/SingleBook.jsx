@@ -1,4 +1,6 @@
 import { useParams, useLoaderData } from 'react-router-dom';
+import { addItem, exists } from '../../utils/utility';
+import toast from 'react-hot-toast';
 
 const SingleBook = () => {
     const books = useLoaderData();
@@ -6,8 +8,25 @@ const SingleBook = () => {
     // console.log(id);
     // console.log(books);
     const book = books.find((book) => parseInt(book.bookId) === parseInt(id));
-    console.log(book);
-    const { image, author, bookName, category, publisher, review, totalPages, tags, rating, yearOfPublishing } = book;
+    // console.log(book);
+    const handleRead = (id)=>{
+        if(exists('read',id)){
+            toast.error('Already in read!!');
+            return;
+        }
+        addItem('read', id);
+        toast.success('Added to read successfully!!');
+    }
+    const handleWishlist = (id)=>{
+        if(exists('wishlist',id)){
+            toast.error('Already in wishlist!!');
+            return;
+        }
+        addItem('wishlist', id);
+        toast.success('Added to wishlist successfully!!');
+    }
+
+    const { bookId, image, author, bookName, category, publisher, review, totalPages, tags, rating, yearOfPublishing } = book;
     return (
         <div className='font-workSans flex justify-center items-center gap-16 mx-[2%] my-12'>
             <img className='md:w-[35%] h-full object-cover p-10' src={image} alt="single book" />
@@ -45,8 +64,8 @@ const SingleBook = () => {
                     </table>
                 </div>
                 <div className="btns flex gap-5">
-                    <button className="btn btn-outline ">Read</button>
-                    <button className="btn btn-success text-white bg-[#23BE0A] hover:bg-[#23be0ac0]">Wishlist</button>
+                    <button onClick={()=>handleRead(bookId)} className="btn btn-outline ">Read</button>
+                    <button onClick={()=>handleWishlist(bookId)} className="btn btn-success text-white bg-[#23BE0A] hover:bg-[#23be0ac0]">Wishlist</button>
                 </div>
             </div>
         </div>
