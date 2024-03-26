@@ -8,12 +8,14 @@ import ListedBooks from "../components/ListedBooks/ListedBooks";
 import ToRead from "../components/ToRead/ToRead";
 import NewArrival from "../components/NewArrival/NewArrival";
 import FAQ from "../components/FAQ/FAQ";
+import NotFoundPage from "../components/NotFound/NotFoundPage";
 
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<MainLayout />,
+        errorElement: <NotFoundPage />,
         loader: ()=> fetch('/books.json'),
         children:[
             {
