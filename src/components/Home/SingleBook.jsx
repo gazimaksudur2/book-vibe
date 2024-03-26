@@ -1,15 +1,57 @@
-import PropTypes from 'prop-types'
+import { useParams, useLoaderData } from 'react-router-dom';
 
-const SingleBook = ({id}) => {
+const SingleBook = () => {
+    const books = useLoaderData();
+    const { id } = useParams();
+    // console.log(id);
+    // console.log(books);
+    const book = books.find((book) => parseInt(book.bookId) === parseInt(id));
+    console.log(book);
+    const { image, author, bookName, category, publisher, review, totalPages, tags, rating, yearOfPublishing } = book;
     return (
-        <div>
-            <h2>This is from single book.{id}</h2>
+        <div className='font-workSans flex justify-center items-center gap-16 mx-[2%] my-12'>
+            <img className='md:w-[35%] h-full object-cover p-10' src={image} alt="single book" />
+            <div className="info space-y-3 md:w-[40%]">
+                <h1 className='font-playfair text-[#131313] text-4xl font-bold'>{bookName}</h1>
+                <h5 className='text-[#131313ac] text-xl py-1 font-medium'>By : {author}</h5>
+                <h4 className='text-[#131313ab] py-4 border-y-2 border-dashed border-gray-300 text-xl font-medium'>{category}</h4>
+                <p className='py-3 text-[#131313a0] text-lg font-normal'><span className='text-[#131313] font-bold pr-3'>Review:</span>{review}</p>
+                <div className="tags flex justify-start items-center gap-5 border-b-2 border-gray-300 pb-10">
+                    <h3 className='text-[131313] text-lg font-bold'>Tag</h3>
+                    {
+                        tags.map((tag, idx) => <span key={idx} className='text-[#23BE0A] text-lg font-medium'>#{tag}</span>)
+                    }
+                </div>
+                <div className="overflow-x-auto">
+                    <table className="table">
+                        <tbody>
+                            <tr className='hover'>
+                                <td className='text-[#131313ad] text-lg font-normal'>Number of Pages:</td>
+                                <td className='text-[#131313] text-lg font-semibold'>{totalPages}</td>
+                            </tr>
+                            <tr className='hover'>
+                                <td className='text-[#131313ad] text-lg font-normal'>Publisher:</td>
+                                <td className='text-[#131313] text-lg font-semibold'>{publisher}</td>
+                            </tr>
+                            <tr className='hover'>
+                                <td className='text-[#131313ad] text-lg font-normal'>Year of Publishing:</td>
+                                <td className='text-[#131313] text-lg font-semibold'>{yearOfPublishing}</td>
+                            </tr>
+                            <tr className='hover'>
+                                <td className='text-[#131313ad] text-lg font-normal'>Rating:</td>
+                                <td className='text-[#131313] text-lg font-semibold'>{rating}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div className="btns flex gap-5">
+                    <button className="btn btn-outline ">Read</button>
+                    <button className="btn btn-success text-white bg-[#23BE0A] hover:bg-[#23be0ac0]">Wishlist</button>
+                </div>
+            </div>
         </div>
     );
 };
 
-SingleBook.propTypes = {
-    id: PropTypes.number,
-}
 
 export default SingleBook;

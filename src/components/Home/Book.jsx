@@ -3,12 +3,12 @@ import { IoIosStarOutline } from "react-icons/io";
 import { Link } from 'react-router-dom';
 
 const Book = ({ book }) => {
-    const { bookId, image, author, bookName, category, publisher, review, totalPages, tags, rating, yearOfPublishing } = book;
+    const { bookId, image, author, bookName, category, tags, rating } = book;
     return (
         <div>
-            <Link to={`/books/${bookId}`} className="card w-96 bg-base-100 shadow-xl">
+            <Link to={`/book/${bookId}`} className="card w-96 bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
-                    <img src={image} alt="book" className="w-80 h-56 object-cover rounded-xl bg-[#F3F3F3]" />
+                    <img src={image} alt="book" className="w-80 h-56 object-contain rounded-xl bg-[#F3F3F3]" />
                 </figure>
                 <div className="card-body items-start text-center">
                     <div className='w-full flex items-center justify-center gap-3'>

@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const Navbar = () => {
     return (
         <div className="navbar flex font-workSans justify-between bg-base-100 w-full p-2 rounded-xl">
@@ -14,15 +16,16 @@ const Navbar = () => {
                         <li><a>FAQs & Help</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-2xl text-[#131313] font-bold">ReadiVerse</a>
+                <img src="https://i.ibb.co/wK7JHDJ/book.png" className="w-8" alt="app-icon" />
+                <a className="ml-4 text-3xl text-[#131313] font-bold">ReadiVerse</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>Home</a></li>
-                    <li><a>Listed Books</a></li>
-                    <li><a>Pages to Read</a></li>
-                    <li><a>New Arrivals</a></li>
-                    <li><a>FAQs & Help</a></li>
+                    <NavLink className={'bg-white'} to={'/'}><a>Home</a></NavLink>
+                    <NavLink className={'bg-white'} to={'/'}><a>Listed Books</a></NavLink>
+                    <NavLink className={'bg-white'} to={'/'}><a>Pages to Read</a></NavLink>
+                    <NavLink className={'bg-white'} to={'/'}><a>New Arrivals</a></NavLink>
+                    <NavLink className={'bg-white'} to={'/'}><a>FAQs & Help</a></NavLink>
                 </ul>
             </div>
             <div className="navbar-end flex justify-end gap-10 mr-10">

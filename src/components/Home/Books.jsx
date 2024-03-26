@@ -4,7 +4,7 @@ import Book from './Book';
 
 const Books = () => {
     const books = useLoaderData();
-    console.log(books);
+    // console.log(books);
     return (
         <div className='flex flex-col justify-center items-center space-y-16'>
             <h2 className='font-playfair text-[#131313] text-4xl font-bold'>Books</h2>

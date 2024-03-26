@@ -6,7 +6,7 @@ const MainLayout = () => {
     // const books = useLoaderData();
     // console.log(books);
     return (
-        <div>
+        <div className='h-screen flex flex-col justify-between'>
             <div className='mx-[2%] my-14'>
                 <Navbar />
                 <Outlet/>
