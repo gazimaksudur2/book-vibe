@@ -5,6 +5,8 @@ live website ---
 netlify --> https://cheery-lokum-4694b8.netlify.app
 surge ----> mammoth-low.surge.sh
 
+Some bullet point of features that offered by this website are goes below: 
+
 Extensive Book Collection: Access a vast and diverse collection of books spanning various genres, from classics to contemporary bestsellers.
 
 Personalized Recommendations: Receive tailored book recommendations based on your reading history, preferences, and interests, ensuring an enriching and enjoyable reading experience.
