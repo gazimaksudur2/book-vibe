@@ -9,7 +9,7 @@ const ReadBooks = ({allBooks, sortOrder}) => {
     const [readBooks, setreadBooks] = useState([]);
 
     useEffect(()=>{
-        const localbks = getItem('wishlist');
+        const localbks = getItem('read');
         const bkarray = allBooks.filter((bk)=>localbks.includes(bk.bookId));
         setreadBooks(bkarray);
     },[]);

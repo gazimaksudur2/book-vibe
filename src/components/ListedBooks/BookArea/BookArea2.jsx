@@ -24,6 +24,7 @@ const BookArea2 = ({sortOrder}) => {
                 {/* <h2>my content</h2> */}
             </TabPanel>
             <TabPanel>
+                {/* <h2>this is my wishlist</h2> */}
                 <Wishlist allBooks={allBooks} sortOrder={sortOrder}/>
             </TabPanel>
         </Tabs>

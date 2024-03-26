@@ -6,11 +6,11 @@ import toast from 'react-hot-toast';
 
 const Wishlist = ({allBooks, sortOrder}) => {
     const [localOrder, setLocalOrder] = useState('');
-    const [books, setBooks] = useState([]);
-    const localbks = getItem('wishlist');
+    const [wishBooks, setwishBooks] = useState([]);
     useEffect(()=>{
+        const localbks = getItem('wishlist');
         const bkarray = allBooks.filter((bk)=>localbks.includes(bk.bookId));
-        setBooks(bkarray);
+        setwishBooks(bkarray);
         // console.log('from local',allBooks);
         // console.log('from local',localbks);
         // console.log('from local',books);
@@ -30,27 +30,27 @@ const Wishlist = ({allBooks, sortOrder}) => {
         let bkarray = [];
         if(localOrder==='rating'){
             // console.log('book array is before sorting ', books);
-            bkarray = books.sort((a,b)=>{
+            bkarray = wishBooks.sort((a,b)=>{
                 return (parseFloat(a.rating) < parseFloat(b.rating))
             });
         }else if(localOrder==='totalPages'){
-            bkarray = books.sort((a,b)=>{
+            bkarray = wishBooks.sort((a,b)=>{
                 return (parseInt(a.totalPages)<parseInt(b.totalPages))
             });
         }else if(localOrder==='yearOfPublishing'){
-            bkarray = books.sort((a,b)=>{
+            bkarray = wishBooks.sort((a,b)=>{
                 return (parseInt(a.yearOfPublishing)<parseInt(b.yearOfPublishing))
             });
         }
 
-        setBooks([...bkarray]);
+        setwishBooks([...bkarray]);
     },[localOrder]);
 
     const handleRemoveAllWishlist = (val)=>{
         const ret = removeItem('wishlist',val);
         if(ret===val){
             toast.success('Successfully removed all the Read Items!!');
-            setBooks([]);
+            setwishBooks([]);
             return;
         }
         toast.error('Cannot remove All items!!');
@@ -59,9 +59,9 @@ const Wishlist = ({allBooks, sortOrder}) => {
     return (
         <div className='w-full flex flex-col justify-between items-center md:gap-8 py-10'>
             {
-                books.map((book)=><ListedBookCard key={book.bookId} book={book}/>)
+                wishBooks.map((book)=><ListedBookCard key={book.bookId} book={book}/>)
             }
-            <button onClick={()=>{handleRemoveAllWishlist('all')}} className={`btn btn-outline ${books.length>0?'flex':'hidden'} btn-info`}>Delete All WishList Books</button>
+            <button onClick={()=>{handleRemoveAllWishlist('all')}} className={`btn btn-outline ${wishBooks.length>0?'flex':'hidden'} btn-info`}>Delete All WishList Books</button>
         </div>
     );
 };
