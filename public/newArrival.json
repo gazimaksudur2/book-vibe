@@ -1,0 +1,79 @@
+[
+    {
+        "image": "https://th.bing.com/th/id/OIP.ppBedO5ZIvDBF7jlclyqgAHaLG?w=196&h=294&c=7&r=0&o=5&pid=1.7",
+        "bookName": "The Secret Garden",
+        "author": "Frances Hodgson Burnett",
+        "category": "Children's Fiction",
+        "tags": ["classics", "fiction", "children"],
+        "totalPages": 250,
+        "publisher": "Puffin Books",
+        "yearOfPublishing": 2022,
+        "rating": 4.5
+    },
+    {
+        "image": "https://th.bing.com/th/id/OIP._Ot9QXnESCkCo3Ir8E4DJgHaLL?w=186&h=282&c=7&r=0&o=5&pid=1.7",
+        "bookName": "The Silent Patient",
+        "author": "Alex Michaelides",
+        "category": "Mystery, Thriller & Suspense",
+        "tags": ["mystery", "suspense", "thriller"],
+        "totalPages": 320,
+        "publisher": "Celadon Books",
+        "yearOfPublishing": 2023,
+        "rating": 4.3
+    },
+    {
+        "image": "https://th.bing.com/th/id/OIP.kQ66ACZpCtaAnJThkdp-7QHaLh?w=186&h=289&c=7&r=0&o=5&pid=1.7",
+        "bookName": "The Seven Husbands of Evelyn Hugo",
+        "author": "Taylor Jenkins Reid",
+        "category": "Historical Fiction",
+        "tags": ["fiction", "historical", "romance"],
+        "totalPages": 400,
+        "publisher": "Washington Square Press",
+        "yearOfPublishing": 2024,
+        "rating": 4.8
+    },
+    {
+        "image": "https://th.bing.com/th/id/OIP.A7kZbGPlVcJQNeuT5p3RpQHaLH?w=186&h=279&c=7&r=0&o=5&pid=1.7",
+        "bookName": "The Night Circus",
+        "author": "Erin Morgenstern",
+        "category": "Fantasy",
+        "tags": ["fantasy", "magic", "romance"],
+        "totalPages": 387,
+        "publisher": "Anchor",
+        "yearOfPublishing": 2011,
+        "rating": 4.4
+    },
+    {
+        "image": "https://th.bing.com/th/id/OIP.rNT41g7ESnv9VUx-fngK4wHaLc?w=186&h=287&c=7&r=0&o=5&pid=1.7",
+        "bookName": "Where the Crawdads Sing",
+        "author": "Delia Owens",
+        "category": "Literary Fiction",
+        "tags": ["fiction", "mystery", "nature"],
+        "totalPages": 384,
+        "publisher": "G.P. Putnam's Sons",
+        "yearOfPublishing": 2018,
+        "rating": 4.7
+    },
+    {
+        "image": "https://th.bing.com/th/id/OIP.ur9iQwV6FqgjBsFcbnjGbAHaLM?w=186&h=281&c=7&r=0&o=5&pid=1.7",
+        "bookName": "Educated: A Memoir",
+        "author": "Tara Westover",
+        "category": "Biography & Memoir",
+        "tags": ["memoir", "autobiography", "education"],
+        "totalPages": 334,
+        "publisher": "Random House",
+        "yearOfPublishing": 2018,
+        "rating": 4.6
+    },
+    {
+        "image": "https://th.bing.com/th/id/OIF.LbFEUzFCwvow7WPMDxRGSA?w=186&h=287&c=7&r=0&o=5&pid=1.7",
+        "bookName": "Circe",
+        "author": "Madeline Miller",
+        "category": "Mythology & Folk Tales",
+        "tags": ["mythology", "greek", "fiction"],
+        "totalPages": 394,
+        "publisher": "Little, Brown and Company",
+        "yearOfPublishing": 2018,
+        "rating": 4.3
+    }
+]

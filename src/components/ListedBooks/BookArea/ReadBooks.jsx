@@ -7,11 +7,11 @@ import toast from 'react-hot-toast';
 const ReadBooks = ({ localOrder, readBooks, setreadBooks }) => {
 
     // console.log('read books ',readBooks );
+    const myStatus = "read";
     
 
     useEffect(()=>{
         if(localOrder==='') return;
-
         let bkarray = [];
         if(localOrder==='rating'){
             // console.log('book array is before sorting ', books);
@@ -27,7 +27,6 @@ const ReadBooks = ({ localOrder, readBooks, setreadBooks }) => {
                 return (parseInt(a.yearOfPublishing)<parseInt(b.yearOfPublishing))
             });
         }
-
         setreadBooks([...bkarray]);
     },[localOrder]);
 
@@ -44,7 +43,7 @@ const ReadBooks = ({ localOrder, readBooks, setreadBooks }) => {
     return (
         <div className='w-full flex flex-col justify-between items-center md:gap-8 py-10'>
             {
-                readBooks.map((book)=><ListedBookCard key={book.bookId} book={book}/>)
+                readBooks.map((book)=><ListedBookCard key={book.bookId} book={book} myStatus={myStatus}/>)
             }
             <button onClick={()=>{handleRemoveAllRead('all')}} className={`btn btn-outline ${readBooks.length>0?'flex':'hidden'} btn-info`}>Delete All Read Books</button>
         </div>

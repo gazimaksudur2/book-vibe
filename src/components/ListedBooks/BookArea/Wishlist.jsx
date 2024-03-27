@@ -5,16 +5,13 @@ import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
 
 const Wishlist = ({allBooks, sortOrder}) => {
+    const myStatus = "wishlist";
     const [localOrder, setLocalOrder] = useState('');
     const [wishBooks, setwishBooks] = useState([]);
     useEffect(()=>{
         const localbks = getItem('wishlist');
         const bkarray = allBooks.filter((bk)=>localbks.includes(bk.bookId));
         setwishBooks(bkarray);
-        // console.log('from local',allBooks);
-        // console.log('from local',localbks);
-        // console.log('from local',books);
-        // console.log('from local',bkarray);
     },[]);
 
     useEffect(()=>{
@@ -42,7 +39,6 @@ const Wishlist = ({allBooks, sortOrder}) => {
                 return (parseInt(a.yearOfPublishing)<parseInt(b.yearOfPublishing))
             });
         }
-
         setwishBooks([...bkarray]);
     },[localOrder]);
 
@@ -59,7 +55,7 @@ const Wishlist = ({allBooks, sortOrder}) => {
     return (
         <div className='w-full flex flex-col justify-between items-center md:gap-8 py-10'>
             {
-                wishBooks.map((book)=><ListedBookCard key={book.bookId} book={book}/>)
+                wishBooks.map((book)=><ListedBookCard key={book.bookId} book={book} myStatus={myStatus}/>)
             }
             <button onClick={()=>{handleRemoveAllWishlist('all')}} className={`btn btn-outline ${wishBooks.length>0?'flex':'hidden'} btn-info`}>Delete All WishList Books</button>
         </div>

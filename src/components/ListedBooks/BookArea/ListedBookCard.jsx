@@ -4,7 +4,7 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 
-const ListedBookCard = ({ book }) => {
+const ListedBookCard = ({ book, myStatus }) => {
     const { bookId, image, author, bookName, category, publisher, totalPages, tags, rating, yearOfPublishing } = book;
     return (
         <div className='w-full'>
@@ -40,7 +40,7 @@ const ListedBookCard = ({ book }) => {
                     <div className="btns flex gap-5">
                         <button className="text-[#328eff] bg-[#328eff3a] px-6 rounded-full active:scale-95">Category: {category}</button>
                         <button className="text-[#ffac33] bg-[#ffac333a] px-6 rounded-full active:scale-95">Rating: {rating}</button>
-                        <Link to={`/listedbook/${bookId}`} >
+                        <Link to={`/listedbook/${bookId}?myStatus=${myStatus}`} >
                                 <button className="btn btn-success text-white bg-[#23BE0A] hover:bg-[#23be0ac0] rounded-full">View Details</button>
                         </Link>
                     </div>
@@ -52,6 +52,7 @@ const ListedBookCard = ({ book }) => {
 
 ListedBookCard.propTypes = {
     book: PropTypes.object.isRequired,
+    myStatus: PropTypes.string,
 }
 
 export default ListedBookCard;

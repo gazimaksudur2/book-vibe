@@ -58,12 +58,11 @@ const router = createBrowserRouter([
             {
                 path: '/newarrival',
                 element: <NewArrival />,
-                loader: ()=> fetch('/books.json'),                         
+                loader: ()=> fetch('/newArrival.json'),                         
             },
             {
                 path: '/faq',
-                element: <FAQ />,
-                loader: ()=> fetch('/books.json'),                         
+                element: <FAQ />                        
             }
         ]
     }
