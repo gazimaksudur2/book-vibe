@@ -4,6 +4,7 @@ import ReadBooks from './ReadBooks';
 import Wishlist from './Wishlist';
 import { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
+import { getItem } from '../../../utils/utility';
 
 const BookArea2 = ({sortOrder}) => {
     const [allBooks, setAllBooks] = useState([]);
@@ -12,6 +13,24 @@ const BookArea2 = ({sortOrder}) => {
         .then(res=>res.json())
         .then(data=>setAllBooks(data))
     },[]);
+
+
+    const [localOrder, setLocalOrder] = useState('');
+    const [readBooks, setreadBooks] = useState([]);
+
+    useEffect(()=>{
+        const localbks = getItem('read');
+        const bkarray = allBooks.filter((bk)=>localbks.includes(bk.bookId));
+        setreadBooks(bkarray);
+        // console.log(localbks, " and ", readBooks, " and ", allBooks);
+    },[allBooks]);
+
+    useEffect(()=>{
+        if(sortOrder!==''){
+            setLocalOrder(sortOrder);
+        }
+    },[sortOrder]);
+
     return (
         <Tabs className={'my-8 md:w-[90%] mx-auto'}  defaultIndex={0}>
             <TabList className={'flex gap-8'}>
@@ -20,8 +39,8 @@ const BookArea2 = ({sortOrder}) => {
             </TabList>
 
             <TabPanel >
-                <ReadBooks allBooks={allBooks} sortOrder={sortOrder}/>
                 {/* <h2>my content</h2> */}
+                <ReadBooks localOrder={localOrder} setLocalOrder={setLocalOrder} readBooks={readBooks} setreadBooks={setreadBooks}/>
             </TabPanel>
             <TabPanel>
                 {/* <h2>this is my wishlist</h2> */}

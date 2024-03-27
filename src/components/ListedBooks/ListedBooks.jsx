@@ -5,8 +5,8 @@ import BooksTop from './BooksTop/BooksTop';
 const ListedBooks = () => {
     const [sortOrder, setSortOrder] = useState('');
 
-    const handleSort = (srtorder)=>{
-        setSortOrder(srtorder);
+    const handleSort = (sortorder)=>{
+        setSortOrder(sortorder);
         // console.log(sortOrder);
     }
     return (

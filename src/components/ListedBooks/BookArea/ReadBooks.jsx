@@ -1,24 +1,13 @@
-import { useEffect, useState } from 'react';
-import { getItem, removeItem } from '../../../utils/utility';
+import { useEffect } from 'react';
+import { removeItem } from '../../../utils/utility';
 import ListedBookCard from './ListedBookCard';
 import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
 
-const ReadBooks = ({allBooks, sortOrder}) => {
-    const [localOrder, setLocalOrder] = useState('');
-    const [readBooks, setreadBooks] = useState([]);
+const ReadBooks = ({ localOrder, readBooks, setreadBooks }) => {
 
-    useEffect(()=>{
-        const localbks = getItem('read');
-        const bkarray = allBooks.filter((bk)=>localbks.includes(bk.bookId));
-        setreadBooks(bkarray);
-    },[]);
-
-    useEffect(()=>{
-        if(sortOrder!==''){
-            setLocalOrder(sortOrder);
-        }
-    },[sortOrder]);
+    // console.log('read books ',readBooks );
+    
 
     useEffect(()=>{
         if(localOrder==='') return;
@@ -64,8 +53,9 @@ const ReadBooks = ({allBooks, sortOrder}) => {
 };
 
 ReadBooks.propTypes = {
-    allBooks: PropTypes.array.isRequired,
-    sortOrder: PropTypes.string,
+    localOrder: PropTypes.string,
+    setreadBooks: PropTypes.func,
+    readBooks: PropTypes.array,
 }
 
 export default ReadBooks;
