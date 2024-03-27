@@ -9,6 +9,7 @@ import ToRead from "../components/ToRead/ToRead";
 import NewArrival from "../components/NewArrival/NewArrival";
 import FAQ from "../components/FAQ/FAQ";
 import NotFoundPage from "../components/NotFound/NotFoundPage";
+import SingleListedBook from "../components/ListedBooks/SingleListedBook";
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,12 @@ const router = createBrowserRouter([
             {
                 path: '/listedbooks',
                 element: <ListedBooks />,
+                loader: ()=> fetch('/books.json'),
+            },
+            {
+                path: '/listedbook/:id',
+                element: <SingleListedBook />,
+                loader: ()=>fetch('/books.json'),
             },
             {
                 path: '/toread',

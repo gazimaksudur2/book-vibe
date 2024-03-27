@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import { CiLocationOn } from "react-icons/ci";
 import { IoPeopleOutline } from "react-icons/io5";
 import { IoDocumentTextOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
 const ListedBookCard = ({ book }) => {
-    const { image, author, bookName, category, publisher, totalPages, tags, rating, yearOfPublishing } = book;
+    const { bookId, image, author, bookName, category, publisher, totalPages, tags, rating, yearOfPublishing } = book;
     return (
         <div className='w-full'>
             <div className="card w-full md:p-8 bg-base-100 shadow-xl flex-row items-center md:gap-16">
@@ -39,7 +40,9 @@ const ListedBookCard = ({ book }) => {
                     <div className="btns flex gap-5">
                         <button className="text-[#328eff] bg-[#328eff3a] px-6 rounded-full active:scale-95">Category: {category}</button>
                         <button className="text-[#ffac33] bg-[#ffac333a] px-6 rounded-full active:scale-95">Rating: {rating}</button>
-                        <button className="btn btn-success text-white bg-[#23BE0A] hover:bg-[#23be0ac0] rounded-full">View Details</button>
+                        <Link to={`/listedbook/${bookId}`} >
+                                <button className="btn btn-success text-white bg-[#23BE0A] hover:bg-[#23be0ac0] rounded-full">View Details</button>
+                        </Link>
                     </div>
                 </div>
             </div>
