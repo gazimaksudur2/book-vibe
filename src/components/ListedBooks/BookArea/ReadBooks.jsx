@@ -11,23 +11,26 @@ const ReadBooks = ({ localOrder, readBooks, setreadBooks }) => {
     
 
     useEffect(()=>{
+        // console.log('local order ',localOrder);
         if(localOrder==='') return;
+
         let bkarray = [];
         if(localOrder==='rating'){
             // console.log('book array is before sorting ', books);
             bkarray = readBooks.sort((a,b)=>{
-                return (parseFloat(a.rating) < parseFloat(b.rating))
+                return (parseFloat(b.rating) - parseFloat(a.rating))
             });
         }else if(localOrder==='totalPages'){
             bkarray = readBooks.sort((a,b)=>{
-                return (parseInt(a.totalPages)<parseInt(b.totalPages))
+                return (parseInt(b.totalPages) - parseInt(a.totalPages))
             });
         }else if(localOrder==='yearOfPublishing'){
             bkarray = readBooks.sort((a,b)=>{
-                return (parseInt(a.yearOfPublishing)<parseInt(b.yearOfPublishing))
+                return (parseInt(b.yearOfPublishing) - parseInt(a.yearOfPublishing))
             });
         }
         setreadBooks([...bkarray]);
+        // console.log(bkarray);
     },[localOrder]);
 
     const handleRemoveAllRead = (val)=>{

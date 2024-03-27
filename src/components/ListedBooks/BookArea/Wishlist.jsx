@@ -21,25 +21,26 @@ const Wishlist = ({allBooks, sortOrder}) => {
     },[sortOrder]);
 
     useEffect(()=>{
-        // console.log('before sorting ',books ,' & local order ',localOrder);
+        // console.log('local order ',localOrder);
         if(localOrder==='') return;
 
         let bkarray = [];
         if(localOrder==='rating'){
             // console.log('book array is before sorting ', books);
             bkarray = wishBooks.sort((a,b)=>{
-                return (parseFloat(a.rating) < parseFloat(b.rating))
+                return (parseFloat(b.rating) - parseFloat(a.rating))
             });
         }else if(localOrder==='totalPages'){
             bkarray = wishBooks.sort((a,b)=>{
-                return (parseInt(a.totalPages)<parseInt(b.totalPages))
+                return (parseInt(b.totalPages) - parseInt(a.totalPages))
             });
         }else if(localOrder==='yearOfPublishing'){
             bkarray = wishBooks.sort((a,b)=>{
-                return (parseInt(a.yearOfPublishing)<parseInt(b.yearOfPublishing))
+                return (parseInt(b.yearOfPublishing) - parseInt(a.yearOfPublishing))
             });
         }
         setwishBooks([...bkarray]);
+        // console.log(bkarray);
     },[localOrder]);
 
     const handleRemoveAllWishlist = (val)=>{

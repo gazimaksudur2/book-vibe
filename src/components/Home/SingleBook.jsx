@@ -9,29 +9,29 @@ const SingleBook = () => {
     // console.log(books);
     const book = books.find((book) => parseInt(book.bookId) === parseInt(id));
     // console.log(book);
-    const handleRead = (id)=>{
-        if(exists('read',id)){
+    const handleRead = (id) => {
+        if (exists('read', id)) {
             toast.error('Already in read!!');
             console.log(id);
             return;
-        }else if(exists('wishlist',id)){
-            toast.error('Transferred from wishlist to readlist!!');
-            removeItem('wishlist',id);
-            setTimeout(()=>{
-                addItem('read', id);
-            },2000);
+        } else if (exists('wishlist', id)) {
+            // toast.loading('Transferred from wishlist to readlist!!');
+            toast.success('Transferred from wishlist to readlist!!');
+
+            removeItem('wishlist', id);
+            addItem('read', id);
             return;
         }
-        setTimeout(()=>{    
+        setTimeout(() => {
             addItem('read', id);
             toast.success('Added to read successfully!!');
-        },500)
+        }, 500)
     }
-    const handleWishlist = (id)=>{
-        if(exists('wishlist',id)){
+    const handleWishlist = (id) => {
+        if (exists('wishlist', id)) {
             toast.error('Already in wishlist!!');
             return;
-        }else if(exists('read',id)){
+        } else if (exists('read', id)) {
             toast.error('That book already in read list!!');
             return;
         }
@@ -77,8 +77,8 @@ const SingleBook = () => {
                     </table>
                 </div>
                 <div className="btns flex gap-5">
-                    <button onClick={()=>handleRead(bookId)} className="btn btn-outline ">Read</button>
-                    <button onClick={()=>handleWishlist(bookId)} className="btn btn-success text-white bg-[#23BE0A] hover:bg-[#23be0ac0]">Wishlist</button>
+                    <button onClick={() => handleRead(bookId)} className="btn btn-outline ">Read</button>
+                    <button onClick={() => handleWishlist(bookId)} className="btn btn-success text-white bg-[#23BE0A] hover:bg-[#23be0ac0]">Wishlist</button>
                 </div>
             </div>
         </div>
