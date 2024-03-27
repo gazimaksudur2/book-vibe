@@ -13,13 +13,13 @@ const BookArea2 = ({sortOrder}) => {
         .then(data=>setAllBooks(data))
     },[]);
     return (
-        <Tabs className={'my-8 md:w-[90%] mx-auto'}>
+        <Tabs className={'my-8 md:w-[90%] mx-auto'}  defaultIndex={0}>
             <TabList className={'flex gap-8'}>
                 <Tab>Read Books</Tab>
                 <Tab>Wishlist Books</Tab>
             </TabList>
 
-            <TabPanel>
+            <TabPanel >
                 <ReadBooks allBooks={allBooks} sortOrder={sortOrder}/>
                 {/* <h2>my content</h2> */}
             </TabPanel>
