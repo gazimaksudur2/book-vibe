@@ -7,6 +7,9 @@ export default {
   theme: {
     extend: {},
   },
+  daisyui: {
+    themes: ["dracula", "fantasy"],
+  },
   plugins: [require("daisyui")],
 }
 

@@ -7,7 +7,7 @@ const MainLayout = () => {
     // console.log(books);
     return (
         <div className='h-screen flex flex-col justify-between'>
-            <div className='mx-[2%] mb-10 mt-8'>
+            <div className='mx-1 md:mx-[2%] mb-5 mt-4 md:mb-10 md:mt-8'>
                 <Navbar />
                 <Outlet/>
             </div>
