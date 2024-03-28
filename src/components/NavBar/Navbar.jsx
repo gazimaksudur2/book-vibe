@@ -1,23 +1,28 @@
-import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
-    const [theme, setTheme] = useState('fantasy');
+    // const [theme, setTheme] = useState('fantasy');
 
-    useEffect(() => {
-        const localTheme = localStorage.getItem('theme');
-        document.querySelector('html').setAttribute('data-theme', localTheme);
-    }, [theme]);
+    // useEffect(() => {
+    //     const localTheme = localStorage.getItem('theme');
+    //     document.querySelector('html').setAttribute('data-theme', localTheme);
+    // }, []);
 
     const handleTheme = (e) => {
         // console.log(e.target.checked);
-        if (!e.target.checked) {
-            setTheme('dracula');
+        // console.log('before -> ',theme); 
+        if (e.target.checked) {
+            // setTheme('dracula');
+            document.querySelector('html').setAttribute('data-theme', 'dracula');
+            // console.log('set to -> dracula');
         } else {
-            setTheme('fantasy');
+            // setTheme('fantasy');
+            // console.log('set to -> fantasy');
+            document.querySelector('html').setAttribute('data-theme', 'fantasy');
         }
-        localStorage.setItem('theme', theme);
-        // console.log(theme); 
+        // localStorage.setItem('theme', theme);
+        // document.querySelector('html').setAttribute('data-theme', theme);
+        // console.log('after -> ',theme);
     };
     return (
         <div className="navbar flex font-workSans justify-between bg-base-100 w-full md:p-2 rounded-xl">
@@ -64,3 +69,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+// theme controller is not working and netlify deploy showing dangerous 
