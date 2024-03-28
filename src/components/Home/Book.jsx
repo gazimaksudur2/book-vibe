@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 const Book = ({ book }) => {
     const { bookId, image, author, bookName, category, tags, rating } = book;
     return (
-        <div>
-            <Link to={`/book/${bookId}`} className="card w-96 bg-base-100 shadow-xl">
+        <div className='w-full flex justify-center items-center'>
+            <Link to={`/book/${bookId}`} className="card w-full md:w-96 bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
-                    <img src={image} alt="book" className="w-80 h-56 object-contain rounded-xl bg-[#F3F3F3]" />
+                    <img src={image} alt="book" className="w-full h-[40vh] md:w-80 md:h-56 object-contain rounded-xl bg-[#F3F3F3]" />
                 </figure>
                 <div className="card-body items-start text-center">
                     <div className='w-full flex items-center justify-center gap-3'>
@@ -24,7 +24,7 @@ const Book = ({ book }) => {
                         <h5>{category}</h5>
                         <div className='flex justify-center items-center gap-3'>
                             <h5>{rating}</h5>
-                            <IoIosStarOutline className='mb-1 text-lg'/>
+                            <IoIosStarOutline className='mb-1 text-lg text-amber-500'/>
                         </div>
                     </div>
                 </div>

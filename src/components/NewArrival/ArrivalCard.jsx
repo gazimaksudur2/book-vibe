@@ -22,13 +22,13 @@ const ArrivalCard = ({ newArrives }) => {
                         }
                     </div>
                     <h4 className='block'>{category}</h4>
-                    <div className="flex gap-4">
-                        <h2 className="mb-1 text-sm font-normal inline">Pages: {totalPages}</h2>
-                        <h2 className="mb-1 text-sm font-normal inline">Publisher: {publisher}</h2>
+                    <div className="mb-1 text-sm font-normal flex flex-col md:flex-row gap-2 md:gap-4">
+                        <h2 className="">Pages: {totalPages}</h2>
+                        <h2 className="">Publisher: {publisher}</h2>
                     </div>
-                    <div className='flex w-full justify-between items-center gap-6'>
+                    <div className='flex flex-col md:flex-row w-full md:justify-between items-start md:items-center gap-2 md:gap-6'>
                         <div className="year flex gap-3 justify-center items-center">
-                            <SlCalender className='text-lg' />
+                            <SlCalender className='text-xl md:text-4xl' />
                             <h2>Publishing Year: {yearOfPublishing}</h2>
                         </div>
                         <div className="rating flex gap-3 justify-center items-center">

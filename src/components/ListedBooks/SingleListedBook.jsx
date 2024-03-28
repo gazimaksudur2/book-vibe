@@ -15,17 +15,17 @@ const SingleListedBook = () => {
 
     const { image, author, bookName, category, publisher, review, totalPages, tags, rating, yearOfPublishing } = book;
     return (
-        <div className='font-workSans flex justify-center items-center gap-16 mx-[2%] my-12'>
-            <img className='md:w-[25%] h-full object-cover p-10' src={image} alt="single book" />
+        <div className='font-workSans px-2 flex flex-col md:flex-row justify-center items-center gap-16 mx-[2%] my-12'>
+            <img className='w-[70%] md:w-[25%] h-full object-cover p-10' src={image} alt="single book" />
             <div className="info space-y-3 md:w-[40%]">
                 <div className="flex justify-between items-center">
-                    <h1 className='font-playfair text-[#131313] inline text-4xl font-bold'>{bookName}</h1>
-                    <h4 className={`inline ml-10 text-2xl font-semibold font-workSans p-4 rounded-badge text-white ${status==='read'?'bg-green-400':'bg-red-400'}`}>{status}</h4>
+                    <h1 className='font-playfair text-[#131313] inline text-2xl md:text-4xl font-bold'>{bookName}</h1>
+                    <h4 className={`inline ml-10 text-xl md:text-2xl font-semibold font-workSans p-3 md:p-4 rounded-badge text-white ${status==='read'?'bg-green-400':'bg-red-400'}`}>{status}</h4>
                 </div>
-                <h5 className='text-[#131313ac] text-xl py-1 font-medium'>By : {author}</h5>
-                <h4 className='text-[#131313ab] py-4 border-y-2 border-dashed border-gray-300 text-xl font-medium'>{category}</h4>
+                <h5 className='text-[#131313ac] text-lg md:text-xl py-1 font-medium'>By : {author}</h5>
+                <h4 className='text-[#131313ab] py-2 md:py-4 border-y-2 border-dashed border-gray-300 text-xl font-medium'>{category}</h4>
                 <p className='py-3 text-[#131313a0] text-lg font-normal'><span className='text-[#131313] font-bold pr-3'>Review:</span>{review.slice(0,200)}</p>
-                <div className="tags flex justify-start items-center gap-5 border-b-2 border-gray-300 pb-10">
+                <div className="tags flex justify-start items-center gap-5 border-b-2 border-gray-300 pb-4 md:pb-10">
                     <h3 className='text-[131313] text-lg font-bold'>Tag</h3>
                     {
                         tags.map((tag, idx) => <span key={idx} className='text-[#23BE0A] text-lg font-medium'>#{tag}</span>)

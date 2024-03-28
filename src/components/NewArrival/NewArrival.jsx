@@ -8,7 +8,7 @@ const NewArrival = () => {
     const newArrivals = useLoaderData();
     // console.log(newArrivals);
     return (
-        <div className="flex flex-col space-y-16 justify-center">
+        <div className="flex flex-col md:space-y-16 space-y-8 justify-center">
             <ArrivalBanner/>
             <ArrivalTitle />
             <ArrivalCards newArrivals={newArrivals}/>

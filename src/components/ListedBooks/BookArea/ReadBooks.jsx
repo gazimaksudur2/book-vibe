@@ -44,7 +44,7 @@ const ReadBooks = ({ localOrder, readBooks, setreadBooks }) => {
     }
 
     return (
-        <div className='w-full flex flex-col justify-between items-center md:gap-8 py-10'>
+        <div className='w-full flex flex-col justify-between items-center space-y-8 md:space-y-4 md:gap-8 py-10'>
             {
                 readBooks.map((book)=><ListedBookCard key={book.bookId} book={book} myStatus={myStatus}/>)
             }

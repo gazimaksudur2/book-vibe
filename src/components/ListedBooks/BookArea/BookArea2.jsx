@@ -32,7 +32,7 @@ const BookArea2 = ({sortOrder}) => {
     },[sortOrder]);
 
     return (
-        <Tabs className={'my-8 md:w-[90%] mx-auto'}  defaultIndex={0}>
+        <Tabs className={'my-8 w-[95%] md:w-[90%] mx-auto'}  defaultIndex={0}>
             <TabList className={'flex gap-8'}>
                 <Tab>Read Books</Tab>
                 <Tab>Wishlist Books</Tab>

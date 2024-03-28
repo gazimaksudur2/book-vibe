@@ -1,6 +1,6 @@
 const FAQ = () => {
     return (
-        <div className='w-[60%] mx-auto my-20 flex flex-col justify-between items-center gap-3'>
+        <div className='w-[90%] md:w-[60%] mx-auto my-8 md:my-20 flex flex-col justify-between items-center gap-3'>
             <div className="collapse collapse-plus bg-base-200">
                 <input type="radio" name="my-accordion-3" defaultChecked />
                 <div className="collapse-title text-xl font-medium">
