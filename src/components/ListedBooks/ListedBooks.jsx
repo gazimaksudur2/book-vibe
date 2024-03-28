@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import BookArea2 from './BookArea/BookArea2';
 import BooksTop from './BooksTop/BooksTop';
+import BookArea from './BookArea/BookArea';
 
 const ListedBooks = () => {
     const [sortOrder, setSortOrder] = useState('');
@@ -12,7 +12,8 @@ const ListedBooks = () => {
     return (
         <div>
             <BooksTop handleSort={handleSort}/>
-            <BookArea2 sortOrder={sortOrder}/>
+            {/* <BookArea2 sortOrder={sortOrder}/> */}
+            <BookArea sortOrder={sortOrder}/>
             {/* <BookArea /> */}
         </div>
     );

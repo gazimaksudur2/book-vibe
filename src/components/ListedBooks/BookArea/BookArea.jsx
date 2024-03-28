@@ -1,28 +1,77 @@
-import { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import 'react-tabs/style/react-tabs.css';
+import ReadBooks from './ReadBooks';
+import Wishlist from './Wishlist';
+import { useEffect, useState } from 'react';
+import propTypes from 'prop-types';
+import { getItem } from '../../../utils/utility';
 
-const BookArea = () => {
-    const [tabIndex, setTabIndex] = useState(0);
+const BookArea = ({sortOrder}) => {
+    const [allBooks, setAllBooks] = useState([]);
+    useEffect(()=>{
+        fetch('/books.json')
+        .then(res=>res.json())
+        .then(data=>setAllBooks(data))
+    },[]);
+
+
+    const [localOrder, setLocalOrder] = useState('');
+    const [readBooks, setreadBooks] = useState([]);
+
+    useEffect(()=>{
+        const localbks = getItem('read');
+        const bkarray = allBooks.filter((bk)=>localbks.includes(bk.bookId));
+        setreadBooks(bkarray);
+        // console.log(localbks, " and ", readBooks, " and ", allBooks);
+    },[allBooks]);
+
+    useEffect(()=>{
+        if(sortOrder!==''){
+            setLocalOrder(sortOrder);
+        }
+    },[sortOrder]);
+
+    const handleChecked = (e) => {
+        // console.log(e.target);
+        // console.log(e.target.id);
+        // if(e.target.checked){
+        //     e.target.className = 'tab text-lg font-medium p-2';
+        // }
+        const read = document.getElementById('read');
+        const wishlist = document.getElementById('wishlist');
+        if(e.target.id==='read'){
+            read.classList.remove('text-sm', 'font-normal', 'p-2');
+            read.classList.add('text-lg', 'font-medium', 'p-6');
+            wishlist.classList.add('text-sm', 'font-normal', 'p-2');
+            wishlist.classList.remove('text-lg', 'font-medium', 'p-6');
+        }else if(e.target.id==='wishlist'){
+            wishlist.classList.remove('text-sm', 'font-normal', 'p-2');
+            wishlist.classList.add('text-lg', 'font-medium', 'p-6');
+            read.classList.add('text-sm', 'font-normal', 'p-2');
+            read.classList.remove('text-lg', 'font-medium', 'p-6');
+        }
+        // console.log(element.classList);
+    }
+
     return (
-        <div className='my-20 md:w-[90%] mx-auto'>
-            <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap text-gray-100 dark:text-gray-800">
-                <Link rel="noopener noreferrer" onClick={()=>setTabIndex(0)} to="" className={`flex items-center ${tabIndex===0?'border border-b-0 font-semibold text-xl':'border-b font-normal text-lg'} flex-shrink-0 px-5 py-3 space-x-2 border-gray-400 dark:border-gray-600 text-gray-400 dark:text-gray-600`}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                    <span>Read Books</span>
-                </Link>
-                <Link rel="noopener noreferrer" onClick={()=>setTabIndex(1)} to="/listedbooks/wishlist" className={`flex items-center ${tabIndex===1?'border border-b-0 font-semibold text-xl':'border-b font-normal text-lg'} flex-shrink-0 px-5 py-3 space-x-2 border-gray-400 dark:border-gray-600 text-gray-400 dark:text-gray-600`}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                    </svg>
-                    <span>Wishlist Books</span>
-                </Link>
+        <div className='my-8 w-[95%] md:w-[95%] mx-auto'>
+            <div role="tablist" className="tabs tabs-lifted">
+                <input id='read' type="radio" name="my_tabs_2" role="tab" onClick={handleChecked} className={`tab text-lg font-medium p-2`} aria-label="Read" defaultChecked />
+                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box px-3 md:px-10 py-4">
+                    <ReadBooks localOrder={localOrder} setLocalOrder={setLocalOrder} readBooks={readBooks} setreadBooks={setreadBooks}/>
+                </div>
+
+                <input id='wishlist' type="radio" name="my_tabs_2" role="tab" onClick={handleChecked} className={`tab text-sm font-normal p-2`} aria-label="Wishlist" />
+                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box px-3 md:px-10 py-4">
+                    <Wishlist allBooks={allBooks} sortOrder={sortOrder}/>
+                    {/* <h2>hello everyone</h2> */}
+                </div>
             </div>
-            <Outlet/>
         </div>
     );
 };
+
+BookArea.propTypes = {
+    sortOrder: propTypes.string,
+}
 
 export default BookArea;
