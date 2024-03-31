@@ -53,15 +53,15 @@ const BookArea = ({sortOrder}) => {
     }
 
     return (
-        <div className='my-8 w-[95%] md:w-[95%] mx-auto'>
-            <div role="tablist" className="tabs tabs-lifted">
-                <input id='read' type="radio" name="my_tabs_2" role="tab" onClick={handleChecked} className={`tab text-lg font-medium p-2`} aria-label="Read" defaultChecked />
-                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box px-3 md:px-10 py-4">
+        <div className='my-8 w-[95%] mx-auto'>
+            <div role="tablist" className="tabs tabs-lifted w-full mx-auto min-w-[90%]">
+                <input id='read' type="radio" name="my_tabs_2" role="tab" onClick={handleChecked} className={`tab w-[80%] text-lg font-medium p-2`} aria-label="Read" defaultChecked />
+                <div role="tabpanel" className="tab-content md:w-full bg-base-100 border-base-300 rounded-box px-3 md:px-10 py-4">
                     <ReadBooks localOrder={localOrder} setLocalOrder={setLocalOrder} readBooks={readBooks} setreadBooks={setreadBooks}/>
                 </div>
 
-                <input id='wishlist' type="radio" name="my_tabs_2" role="tab" onClick={handleChecked} className={`tab text-sm font-normal p-2`} aria-label="Wishlist" />
-                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box px-3 md:px-10 py-4">
+                <input id='wishlist' type="radio" name="my_tabs_2" role="tab" onClick={handleChecked} className={`tab w-[80%] text-sm font-normal p-2`} aria-label="Wishlist" />
+                <div role="tabpanel" className="tab-content md:w-full bg-base-100 border-base-300 rounded-box px-3 md:px-10 py-4">
                     <Wishlist allBooks={allBooks} sortOrder={sortOrder}/>
                     {/* <h2>hello everyone</h2> */}
                 </div>

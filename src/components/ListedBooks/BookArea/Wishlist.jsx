@@ -12,7 +12,7 @@ const Wishlist = ({allBooks, sortOrder}) => {
         const localbks = getItem('wishlist');
         const bkarray = allBooks.filter((bk)=>localbks.includes(bk.bookId));
         setwishBooks(bkarray);
-    },[]);
+    },[allBooks]);
 
     useEffect(()=>{
         if(sortOrder!==''){
@@ -52,6 +52,8 @@ const Wishlist = ({allBooks, sortOrder}) => {
         }
         toast.error('Cannot remove All items!!');
     }
+    // console.log(wishBooks);
+    // console.log(allBooks);
 
     return (
         <div className='w-full flex flex-col justify-between items-center space-y-8 md:space-y-4 md:gap-8 py-10'>

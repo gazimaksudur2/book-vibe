@@ -1,0 +1,2 @@
+
+//   resource link: https://vercel.com/docs/projects/project-configuration#rewrites
